@@ -59,7 +59,7 @@ def eval(cfg: EvalConfig):
         model_path = osp.join(cfg.model_path, "model_optimal.pt")
     print(f"load trained model from {model_path}")
 
-    model = torch.load(model_path)
+    model = torch.load(model_path).to(cfg.device)
     model.eval()
     
     eval_img_name = []
