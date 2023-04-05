@@ -67,14 +67,12 @@ def train(cfg: TrainConfig):
     for param in model.parameters():
         param.requires_grad = False
     num_ftrs = model.fc.in_features
-    # model.fc = nn.Sequential(
-    #             nn.Linear(num_ftrs, 1024),
-    #             nn.ReLU(inplace=True),
-    #             nn.Linear(1024, 512),
-    #             nn.ReLU(inplace=True),
-    #             nn.Linear(512, 3)).to(cfg.device)
     model.fc = nn.Sequential(
-                nn.Linear(num_ftrs, 3)).to(cfg.device)
+                nn.Linear(num_ftrs, 1024),
+                nn.ReLU(inplace=True),
+                nn.Linear(1024, 512),
+                nn.ReLU(inplace=True),
+                nn.Linear(512, 3)).to(cfg.device)
     optimizer = torch.optim.Adam(model.parameters(), lr=cfg.lr)
     loss = nn.CrossEntropyLoss()
 
