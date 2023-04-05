@@ -13,3 +13,6 @@ To evaluate a trained model, run:
 python script/eval.py --data_path absolute_path_to_data --model_path absolute_path_to_model --logdir log/
 ```
 It will (1) load the evaluation data from `absolute_path_to_data`; (2) load trained model from `absolute_path_to_model/model.pt`; (3) save `pred_labels.csv` to `current_path/log/`.
+
+## BUGs
+- if training and evaluation are carried out on different devices, the results will be totally wrong
