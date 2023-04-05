@@ -54,7 +54,7 @@ def eval(cfg: EvalConfig):
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
 
-    model_path = osp.join(cfg.model_path, "model4.pt")
+    model_path = osp.join(cfg.model_path, "model.pt")
     if cfg.optimal:
         model_path = osp.join(cfg.model_path, "model_optimal.pt")
     print(f"load trained model from {model_path}")
